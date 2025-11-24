@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
+  <circle cx="90" cy="90" r="80" fill="#001f3f"/>
+  <path d="M90 30 L120 90 L90 80 L60 90 Z" fill="#ff7b00"/>
+  <text x="50%" y="140" text-anchor="middle" fill="white" font-size="20" font-family="Poppins" font-weight="bold">
+    HEROES
+  </text>
+</svg>

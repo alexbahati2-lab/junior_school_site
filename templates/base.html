@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heroes Academy</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <header class="navbar">
+  <img src="{% static 'images/logo.svg' %}" alt="Heroes Academy Logo" width="80" style="vertical-align: middle;">
+  <h1 style="display: inline; color: #ff7b00; margin-left: 10px;">Heroes Academy</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+</header>
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    <p>© {{ now|date:"Y" }} Heroes Academy | Nurturing Young Champions</p>
+  </footer>
+</body>
+</html>
