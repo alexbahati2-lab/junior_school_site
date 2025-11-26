@@ -1,5 +1,5 @@
 from django import forms
-from .models import HomePage, AboutPage, GalleryImage, Event
+from .models import HomePage, AboutPage, GalleryImage, Event, ContactPage
 
 class HomePageForm(forms.ModelForm):
     class Meta:
@@ -20,3 +20,11 @@ class EventForm(forms.ModelForm):
     class Meta:
         model = Event
         fields = ['title', 'date', 'description']
+
+class ContactPageForm(forms.ModelForm):
+    class Meta:
+        model = ContactPage
+        fields = ['phone', 'email', 'address']
+        widgets = {
+            'address': forms.Textarea(attrs={'rows': 3}),
+        }        

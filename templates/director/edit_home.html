@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div style="display: flex; gap: 20px; margin: 40px;">
+  <!-- Sidebar -->
+  <aside style="width: 220px; background-color: #001f3f; padding: 20px; border-radius: 8px;">
+    <h3 style="color: #ff7b00; text-align: center; margin-bottom: 20px;">Director Panel</h3>
+    <ul style="list-style: none; padding: 0;">
+      <li style="margin: 15px 0;"><a href="{% url 'dashboard' %}" style="color: #fff; text-decoration: none;">Dashboard</a></li>
+      <li style="margin: 15px 0;"><a href="{% url 'edit_home' %}" style="color: #ff7b00; text-decoration: none; font-weight: bold;">Edit Home</a></li>
+      <li style="margin: 15px 0;"><a href="{% url 'edit_about' %}" style="color: #fff; text-decoration: none;">Edit About</a></li>
+      <li style="margin: 15px 0;"><a href="{% url 'manage_gallery' %}" style="color: #fff; text-decoration: none;">Gallery</a></li>
+      <li style="margin: 15px 0;"><a href="{% url 'manage_events' %}" style="color: #fff; text-decoration: none;">Events</a></li>
+      <li style="margin: 15px 0;"><a href="{% url 'logout' %}" style="color: #fff; text-decoration: none;">Logout</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <section style="flex: 1; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    <h2 style="color: #001f3f; margin-bottom: 20px;">Edit Home Page</h2>
+    
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" style="background-color: #001f3f; color: #fff; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px;">
+        Save Changes
+      </button>
+    </form>
+  </section>
+</div>
+{% endblock %}

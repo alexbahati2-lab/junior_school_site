@@ -9,14 +9,14 @@
 </head>
 <body>
   <header class="navbar">
-  <img src="{% static 'images/logo.svg' %}" alt="Heroes Academy Logo" width="80" style="vertical-align: middle;">
-  <h1 style="display: inline; color: #ff7b00; margin-left: 10px;">Heroes Academy</h1>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
-  </nav>
-</header>
+    <img src="{% static 'images/logo.svg' %}" alt="Heroes Academy Logo" width="80" style="vertical-align: middle;">
+    <h1 style="display: inline; color: #ff7b00; margin-left: 10px;">Heroes Academy</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </header>
 
   <main>
     {% block content %}
@@ -25,6 +25,11 @@
 
   <footer>
     <p>© {{ now|date:"Y" }} Heroes Academy | Nurturing Young Champions</p>
+    <!-- Subtle Director Login link -->
+    <a href="{% url 'director_login' %}" 
+       style="font-size: 10px; color: #ff7b00; text-decoration: none; float: right; margin-right: 20px;">
+       Director Login
+    </a>
   </footer>
 </body>
 </html>

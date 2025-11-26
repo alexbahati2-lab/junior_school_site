@@ -1,0 +1,50 @@
+<!-- director/templates/director/edit_contact.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Contact - Heroes Academy</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    .form-container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .form-container h2 { color: #001f3f; margin-bottom: 20px; }
+    .form-container input, .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .form-container button {
+      padding: 10px 20px;
+      background-color: #001f3f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .form-container button:hover {
+      background-color: #ff7b00;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Edit Contact Information</h2>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</body>
+</html>

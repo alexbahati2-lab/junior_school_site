@@ -37,3 +37,13 @@ class Event(models.Model):
 
     def __str__(self):
         return f"{self.title} ({self.date})"
+# director/models.py or main/models.py
+from django.db import models
+
+class ContactPage(models.Model):
+    phone = models.CharField(max_length=20, blank=True)
+    email = models.EmailField(blank=True)
+    address = models.TextField(blank=True)
+
+    def __str__(self):
+        return "Contact Info"

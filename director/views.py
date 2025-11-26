@@ -1,10 +1,27 @@
 from django.shortcuts import render
-
-# Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import HomePage, AboutPage, GalleryImage, Event
 from .forms import HomePageForm, AboutPageForm, GalleryForm, EventForm
+# director/views.py (add at the top with other imports)
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
+from .models import ContactPage
+from .forms import ContactPageForm
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+
+def director_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('dashboard')
+        else:
+            messages.error(request, "Invalid username or password")
+    return render(request, 'director/login.html')
 
 @login_required
 def dashboard(request):
@@ -57,3 +74,14 @@ def manage_events(request):
     else:
         form = EventForm()
     return render(request, 'director/manage_events.html', {'form': form, 'events': events})
+@login_required
+def edit_contact(request):
+    contact, _ = ContactPage.objects.get_or_create(id=1)
+    if request.method == 'POST':
+        form = ContactPageForm(request.POST, instance=contact)
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
+    else:
+        form = ContactPageForm(instance=contact)
+    return render(request, 'director/edit_contact.html', {'form': form})
