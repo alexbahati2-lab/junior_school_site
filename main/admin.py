@@ -1,9 +1,12 @@
 from django.contrib import admin
-
-# Register your models here.
 from django.contrib import admin
-from .models import Teacher, News, Gallery
+from main.models import Teacher, News, Gallery, Event, HomePage, AboutPage, ContactPage
 
 admin.site.register(Teacher)
 admin.site.register(News)
 admin.site.register(Gallery)
+admin.site.register(Event)
+admin.site.register(HomePage)
+admin.site.register(AboutPage)
+admin.site.register(ContactPage)
+

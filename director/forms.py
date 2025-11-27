@@ -1,5 +1,5 @@
+from main.models import HomePage, AboutPage, Gallery, Event, ContactPage
 from django import forms
-from .models import HomePage, AboutPage, GalleryImage, Event, ContactPage
 
 class HomePageForm(forms.ModelForm):
     class Meta:
@@ -13,7 +13,7 @@ class AboutPageForm(forms.ModelForm):
 
 class GalleryForm(forms.ModelForm):
     class Meta:
-        model = GalleryImage
+        model = Gallery
         fields = ['title', 'image', 'caption']
 
 class EventForm(forms.ModelForm):
