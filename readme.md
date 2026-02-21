@@ -36,9 +36,11 @@ All without needing to log into Django’s backend panel.
 Layer	Technology
 Frontend	HTML5, CSS3, Bootstrap, JavaScript
 Backend	Django 5+
-Database	SQLite (default, can be upgraded)
+Database	PostgreSQL (production) / SQLite (development)
 Environment	Python 3.13 with Virtual Environment (venv)
 Media Handling	Pillow (for image uploads)
+Deployment	Render (automatic from GitHub)
+Server	Gunicorn + WhiteNoise
 ⚙️ Setup Instructions
 1️⃣ Clone or copy the project
 git clone https://github.com/yourusername/heroes_academy_site.git
@@ -63,6 +65,19 @@ python manage.py runserver
 
 
 Then open your browser and visit 👉 http://127.0.0.1:8000/
+
+🌐 Deployment to Render
+
+### Quick Deploy (5 minutes)
+1. Push code to GitHub
+2. Go to [render.com](https://render.com)
+3. Create Web Service + PostgreSQL database
+4. Set environment variables
+5. Deploy! 🚀
+
+See [QUICK_START.md](QUICK_START.md) for step-by-step instructions.
+
+**Status**: ✅ Production-ready with PostgreSQL support
 
 🎨 Design Notes
 
